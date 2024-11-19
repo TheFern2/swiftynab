@@ -30,4 +30,14 @@ public struct BudgetSummary: Codable, Equatable {
 
     /// Currency formatting settings
     public let currencyFormat: CurrencyFormat?
+
+    public init(id: String, name: String, lastModifiedOn: String, firstMonth: String, lastMonth: String, dateFormat: DateFormat? = nil, currencyFormat: CurrencyFormat? = nil) {
+        self.id = id
+        self.name = name
+        self.lastModifiedOn = lastModifiedOn
+        self.firstMonth = firstMonth
+        self.lastMonth = lastMonth
+        self.dateFormat = dateFormat
+        self.currencyFormat = currencyFormat
+    }
 }

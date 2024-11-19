@@ -59,19 +59,27 @@ public struct SaveTransaction: Codable {
         id: String? = nil,
         date: String,
         amount: Int,
+        memo: String? = nil,
+        cleared: String = "uncleared",
+        approved: Bool = false,
+        flagColor: String? = nil,
         accountId: String,
         payeeId: String? = nil,
-        payeeName: String,
+        payeeName: String? = nil,
+        categoryId: String? = nil,
         importId: String? = nil
     ) {
         self.id = id
         self.date = date
         self.amount = amount
-        cleared = "uncleared"
-        approved = false
+        self.memo = memo
+        self.cleared = cleared
+        self.approved = approved
+        self.flagColor = flagColor
         self.accountId = accountId
         self.payeeId = payeeId
         self.payeeName = payeeName
+        self.categoryId = categoryId
         self.importId = importId
     }
 }

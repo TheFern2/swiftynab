@@ -66,4 +66,47 @@ public struct TransactionDetail: Codable, Equatable {
 
     /// Sub transactions belonging to this transaction
     public let subtransactions: [SubTransaction]
+
+    // Initializer
+    public init(
+        id: String,
+        date: String,
+        amount: Int,
+        memo: String?,
+        cleared: String,
+        approved: Bool,
+        flagColor: String?,
+        accountId: String,
+        accountName: String,
+        payeeId: String?,
+        payeeName: String?,
+        categoryId: String?,
+        categoryName: String?,
+        transferAccountId: String?,
+        transferTransactionId: String?,
+        matchedTransactionId: String?,
+        importId: String?,
+        deleted: Bool,
+        subtransactions: [SubTransaction]
+    ) {
+        self.id = id
+        self.date = date
+        self.amount = amount
+        self.memo = memo
+        self.cleared = cleared
+        self.approved = approved
+        self.flagColor = flagColor
+        self.accountId = accountId
+        self.accountName = accountName
+        self.payeeId = payeeId
+        self.payeeName = payeeName
+        self.categoryId = categoryId
+        self.categoryName = categoryName
+        self.transferAccountId = transferAccountId
+        self.transferTransactionId = transferTransactionId
+        self.matchedTransactionId = matchedTransactionId
+        self.importId = importId
+        self.deleted = deleted
+        self.subtransactions = subtransactions
+    }
 }
