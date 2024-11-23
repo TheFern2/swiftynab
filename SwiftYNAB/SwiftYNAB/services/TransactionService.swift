@@ -50,7 +50,7 @@ extension TransactionService: TransactionServiceType {
         sinceDate: Date? = nil,
         type: TransactionType? = nil,
         lastKnowledgeOfServer: Int? = nil
-    ) async throws -> [TransactionDetail] {
+    ) async throws -> ([TransactionDetail], ServerKnowledge) {
         let request = TransactionsByBudgetRequest(
             budgetId: budgetId,
             sinceDate: sinceDate,
@@ -58,7 +58,7 @@ extension TransactionService: TransactionServiceType {
             lastKnowledgeOfServer: lastKnowledgeOfServer
         )
         let response: TransactionsResponse = try await client.request(request)
-        return response.transactions
+        return (response.transactions, ServerKnowledge(value: response.serverKnowledge))
     }
 
     /// Returns all transactions for an account.
@@ -79,7 +79,7 @@ extension TransactionService: TransactionServiceType {
         sinceDate: Date? = nil,
         type: TransactionType? = nil,
         lastKnowledgeOfServer: Int? = nil
-    ) async throws -> [TransactionDetail] {
+    ) async throws -> ([TransactionDetail], ServerKnowledge) {
         let request = TransactionsByAccountRequest(
             budgetId: budgetId,
             accountId: accountId,
@@ -88,7 +88,7 @@ extension TransactionService: TransactionServiceType {
             lastKnowledgeOfServer: lastKnowledgeOfServer
         )
         let response: TransactionsResponse = try await client.request(request)
-        return response.transactions
+        return (response.transactions, ServerKnowledge(value: response.serverKnowledge))
     }
 
     /// Returns all transactions for a category.
@@ -109,7 +109,7 @@ extension TransactionService: TransactionServiceType {
         sinceDate: Date? = nil,
         type: TransactionType? = nil,
         lastKnowledgeOfServer: Int? = nil
-    ) async throws -> [HybridTransaction] {
+    ) async throws -> ([HybridTransaction], ServerKnowledge) {
         let request = TransactionsByCategoryRequest(
             budgetId: budgetId,
             categoryId: categoryId,
@@ -118,7 +118,7 @@ extension TransactionService: TransactionServiceType {
             lastKnowledgeOfServer: lastKnowledgeOfServer
         )
         let response: HybridTransactionsResponse = try await client.request(request)
-        return response.transactions
+        return (response.transactions, ServerKnowledge(value: response.serverKnowledge))
     }
 
     /// Returns all transactions for a payee.
@@ -139,7 +139,7 @@ extension TransactionService: TransactionServiceType {
         sinceDate: Date? = nil,
         type: TransactionType? = nil,
         lastKnowledgeOfServer: Int? = nil
-    ) async throws -> [HybridTransaction] {
+    ) async throws -> ([HybridTransaction], ServerKnowledge) {
         let request = TransactionsByPayeeRequest(
             budgetId: budgetId,
             payeeId: payeeId,
@@ -148,7 +148,7 @@ extension TransactionService: TransactionServiceType {
             lastKnowledgeOfServer: lastKnowledgeOfServer
         )
         let response: HybridTransactionsResponse = try await client.request(request)
-        return response.transactions
+        return (response.transactions, ServerKnowledge(value: response.serverKnowledge))
     }
 
     /// Creates a new transactions.

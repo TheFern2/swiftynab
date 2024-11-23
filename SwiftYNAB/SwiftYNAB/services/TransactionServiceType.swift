@@ -16,7 +16,7 @@ protocol TransactionServiceType {
         sinceDate: Date?,
         type: TransactionType?,
         lastKnowledgeOfServer: Int?
-    ) async throws -> [TransactionDetail]
+    ) async throws -> ([TransactionDetail], ServerKnowledge)
 
     func getTransactions(
         budgetId: String,
@@ -24,7 +24,7 @@ protocol TransactionServiceType {
         sinceDate: Date?,
         type: TransactionType?,
         lastKnowledgeOfServer: Int?
-    ) async throws -> [TransactionDetail]
+    ) async throws -> ([TransactionDetail], ServerKnowledge)
 
     func getTransactions(
         budgetId: String,
@@ -32,7 +32,7 @@ protocol TransactionServiceType {
         sinceDate: Date?,
         type: TransactionType?,
         lastKnowledgeOfServer: Int?
-    ) async throws -> [HybridTransaction]
+    ) async throws -> ([HybridTransaction], ServerKnowledge)
 
     func getTransactions(
         budgetId: String,
@@ -40,7 +40,7 @@ protocol TransactionServiceType {
         sinceDate: Date?,
         type: TransactionType?,
         lastKnowledgeOfServer: Int?
-    ) async throws -> [HybridTransaction]
+    ) async throws -> ([HybridTransaction], ServerKnowledge)
 
     func saveTransaction(budgetId: String, transaction: NewTransaction) async throws
         -> TransactionDetail

@@ -29,13 +29,13 @@ extension MonthService: MonthServiceType {
     public func getMonths(
         budgetId: String,
         lastKnowledgeOfServer: Int? = nil
-    ) async throws -> [MonthSummary] {
+    ) async throws -> ([MonthSummary], ServerKnowledge) {
         let request = MonthsRequest(
             budgetId: budgetId,
             lastKnowledgeOfServer: lastKnowledgeOfServer
         )
         let response: MonthsResponse = try await client.request(request)
-        return response.months
+        return (response.months, ServerKnowledge(value: response.serverKnowledge))
     }
 
     /// Returns a specific month for a budget.

@@ -40,13 +40,13 @@ extension BudgetService: BudgetServiceType {
     public func getBudget(
         budgetId: String,
         lastKnowledgeOfServer: Int? = nil
-    ) async throws -> BudgetDetail {
+    ) async throws -> (BudgetDetail, ServerKnowledge) {
         let request = BudgetDetailRequest(
             budgetId: budgetId,
             lastKnowledgeOfServer: lastKnowledgeOfServer
         )
         let response: BudgetDetailResponse = try await client.request(request)
-        return response.budget
+        return (response.budget, ServerKnowledge(value: response.serverKnowledge))
     }
 
     /// Returns settings for a budget.

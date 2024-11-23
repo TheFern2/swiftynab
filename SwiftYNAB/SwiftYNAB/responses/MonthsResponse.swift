@@ -10,4 +10,5 @@ import Foundation
 
 struct MonthsResponse: Codable {
     let months: [MonthSummary]
+    let serverKnowledge: Int
 }

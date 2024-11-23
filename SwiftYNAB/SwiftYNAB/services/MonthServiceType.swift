@@ -9,7 +9,7 @@
 import Foundation
 
 protocol MonthServiceType {
-    func getMonths(budgetId: String, lastKnowledgeOfServer: Int?) async throws -> [MonthSummary]
+    func getMonths(budgetId: String, lastKnowledgeOfServer: Int?) async throws -> ([MonthSummary], ServerKnowledge)
 
     func getMonth(budgetId: String, month: String) async throws -> MonthDetail
 }

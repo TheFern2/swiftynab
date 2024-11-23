@@ -10,4 +10,5 @@ import Foundation
 
 struct HybridTransactionsResponse: Codable {
     let transactions: [HybridTransaction]
+    let serverKnowledge: Int
 }

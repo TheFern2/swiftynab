@@ -29,13 +29,13 @@ extension PayeeService: PayeeServiceType {
     public func getPayees(
         budgetId: String,
         lastKnowledgeOfServer: Int? = nil
-    ) async throws -> [Payee] {
+    ) async throws -> ([Payee], ServerKnowledge) {
         let request = PayeesRequest(
             budgetId: budgetId,
             lastKnowledgeOfServer: lastKnowledgeOfServer
         )
         let response: PayeesResponse = try await client.request(request)
-        return response.payees
+        return (response.payees, ServerKnowledge(value: response.serverKnowledge))
     }
 
     /// Returns a single payee.

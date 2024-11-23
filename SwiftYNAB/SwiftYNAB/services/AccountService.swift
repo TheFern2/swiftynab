@@ -42,13 +42,13 @@ extension AccountService: AccountServiceType {
     public func getAccounts(
         budgetId: String,
         lastKnowledgeOfServer: Int? = nil
-    ) async throws -> [Account] {
+    ) async throws -> ([Account], ServerKnowledge) {
         let request = AccountsRequest(
             budgetId: budgetId,
             lastKnowledgeOfServer: lastKnowledgeOfServer
         )
         let response: AccountsResponse = try await client.request(request)
-        return response.accounts
+        return (response.accounts, ServerKnowledge(value: response.serverKnowledge))
     }
 
     /// Creates a new unlinked account in a budget.

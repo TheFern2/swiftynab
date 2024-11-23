@@ -10,4 +10,5 @@ import Foundation
 
 struct BudgetDetailResponse: Codable {
     let budget: BudgetDetail
+    let serverKnowledge: Int
 }
