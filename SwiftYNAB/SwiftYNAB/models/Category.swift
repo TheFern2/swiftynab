@@ -78,4 +78,53 @@ public struct Category: Codable, Equatable {
 
     /// Whether or not the goal is deleted
     public let deleted: Bool
+    
+    /// Custom initializer
+    public init(
+        id: String,
+        categoryGroupId: String,
+        name: String,
+        hidden: Bool,
+        originalCategoryGroupId: String? = nil,
+        note: String? = nil,
+        budgeted: Int = 0,
+        activity: Int = 0,
+        balance: Int = 0,
+        goalType: String? = nil,
+        goalDay: Int? = nil,
+        goalCadence: Int? = nil,
+        goalCadenceFrequency: Int? = nil,
+        goalCreationMonth: String? = nil,
+        goalTarget: Int? = nil,
+        goalTargetMonth: String? = nil,
+        goalPercentageComplete: Int? = nil,
+        goalMonthsToBudget: Int? = nil,
+        goalUnderFunded: Int? = nil,
+        goalOverallFunded: Int? = nil,
+        goalOverallLeft: Int? = nil,
+        deleted: Bool
+    ) {
+        self.id = id
+        self.categoryGroupId = categoryGroupId
+        self.name = name
+        self.hidden = hidden
+        self.originalCategoryGroupId = originalCategoryGroupId
+        self.note = note
+        self.budgeted = budgeted
+        self.activity = activity
+        self.balance = balance
+        self.goalType = goalType
+        self.goalDay = goalDay
+        self.goalCadence = goalCadence
+        self.goalCadenceFrequency = goalCadenceFrequency
+        self.goalCreationMonth = goalCreationMonth
+        self.goalTarget = goalTarget
+        self.goalTargetMonth = goalTargetMonth
+        self.goalPercentageComplete = goalPercentageComplete
+        self.goalMonthsToBudget = goalMonthsToBudget
+        self.goalUnderFunded = goalUnderFunded
+        self.goalOverallFunded = goalOverallFunded
+        self.goalOverallLeft = goalOverallLeft
+        self.deleted = deleted
+    }
 }

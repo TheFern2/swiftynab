@@ -24,4 +24,13 @@ public struct CategoryGroupWithCategories: Codable, Equatable {
 
     /// Categories belonging to this group
     public let categories: [Category]
+
+    /// Custom initializer
+    public init(id: String, name: String, hidden: Bool, deleted: Bool, categories: [Category]) {
+        self.id = id
+        self.name = name
+        self.hidden = hidden
+        self.deleted = deleted
+        self.categories = categories
+    }
 }

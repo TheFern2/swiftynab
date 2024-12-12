@@ -21,4 +21,12 @@ public struct Payee: Codable, Equatable {
 
     /// Whether or not the payee is deleted
     public let deleted: Bool
+
+    /// Custom initializer
+    public init(id: String, name: String, transferAccountId: String? = nil, deleted: Bool = false) {
+        self.id = id
+        self.name = name
+        self.transferAccountId = transferAccountId
+        self.deleted = deleted
+    }
 }
