@@ -10,4 +10,8 @@ import Foundation
 
 public struct ServerKnowledge: Codable, Equatable {
     public let value: Int
+
+    public init(value: Int) {
+        self.value = value
+    }
 }
